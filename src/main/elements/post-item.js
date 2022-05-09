@@ -6,15 +6,14 @@ function PostItem(props) {
     const navigate = useNavigate();
 
     const onPostClick = (e) => {
-        console.log('try to go', id);
         navigate(`posts/${id}`);
     }
 
     return (
         <div className={'post-card'} onClick={onPostClick}>
-            <div className={'post-card-date'}>{created}</div>
-            <div className={'post-card-text'}>{content}</div>
-            <div className={'post-card-id'}>{id}</div>
+            <div className={'post-card-date'}>Created: {new Date(created).toLocaleDateString()}</div>
+            <div className={'post-card-text'}>Message: {content}</div>
+            <div className={'post-card-id'}>ID: {id}</div>
         </div>
     )
 }

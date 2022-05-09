@@ -17,9 +17,10 @@ function CreatePage(props) {
             headers: {'Content-Type' : 'application/json'},
         };
         const response = await fetch(process.env.REACT_APP_HOST_URL + 'posts', options);
-        console.log(response.statusText);
-        textareaRef.current.value = '';
-        navigate('/');
+        if (response.ok) {
+            textareaRef.current.value = '';
+            navigate('/');
+        }
     }
     const cancelHandler = () => {
         textareaRef.current.value = '';

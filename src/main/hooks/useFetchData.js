@@ -3,23 +3,23 @@ import {useEffect, useState} from "react";
 function useFetchData(url, opts) {
     const [data, setData] = useState([]);
 
-    const fetchData = async () => {
-        console.log('I do request');
-        try {
-            const response = await fetch(url, opts);
-            if (response.ok) {
-                const data = await response.json();
-                setData(data)
-            } else {
-                setData([]);
-            }
-        } catch (e) {
-            console.log(e.message);
-            setData([]);
-        }
-    }
 
     useEffect(() => {
+        const fetchData = async () => {
+            console.log('I do request'); // TO CHECK HOW MANY REQ BEING DONE
+            try {
+                const response = await fetch(url, opts);
+                if (response.ok) {
+                    const data = await response.json();
+                    setData(data)
+                } else {
+                    setData([]);
+                }
+            } catch (e) {
+                console.log(e.message);
+                setData([]);
+            }
+        }
         fetchData();
     }, [url, opts]);
 

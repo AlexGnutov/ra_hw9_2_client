@@ -16,7 +16,6 @@ function EditPage(props) {
             id: Number(id),
             content: textareaRef.current?.value
         });
-        console.log({updateData});
         try {
             fetch(url, {
                 method: 'POST',
